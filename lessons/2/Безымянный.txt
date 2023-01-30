@@ -1,0 +1,87 @@
+
+
+
+user_number = int(input('Введите число'))
+if user_number % 2 == 0:
+    print('Число четное')
+if user_number % 2 == 1:
+    print('Число нечетное')
+
+
+узнать последнюю цифру
+user_number = int(input('Введите число'))
+print(user_number % 10)
+
+
+2345 % 10
+
+
+Задача
+
+x = 1234
+print(x // 1000)
+print(x // 100 % 10)
+print(x // 10 % 10)
+print(x % 10)
+
+
+угадай слово
+
+print('Попробуй угадать слово по буквам!')
+secret_word = 'машина'
+attempts = 5
+
+print('Попробуй угадать слово по буквам!')
+secret_word = 'машина'
+attempts = 5
+for i in range(len(secret_word)):
+    print('*', end='')
+
+print("Попробуй угадать слово по буквам!")
+secret_word = "машина"
+attempts = 5
+user_chars = []
+for i in range(len(secret_word)):
+    print("*", end=' ')
+print()
+user_char = input('Введите букву ')
+if user_char not in user_chars:
+    user_chars.append(user_char)
+for char in secret_word:
+    if char in user_chars:
+        print(char, end=' ')
+    else:
+        print('*', end=' ')
+        
+        
+        
+print("Попробуй угадать слово по буквам!")
+secret_word = "машина"
+attempts = 5
+user_chars = []
+for i in range(len(secret_word)):
+    print("*", end=' ')
+print()
+while True:
+    is_win = True
+    print('Попыток: ' + str(attempts))
+
+    user_char = input('Введите букву ')
+    if user_char not in user_chars:
+        user_chars.append(user_char)
+    for char in secret_word:
+        if char in user_chars:
+            print(char, end=' ')
+        else:
+            print('*', end=' ')
+            is_win = False
+    print()
+    if user_char not in secret_word:
+        attempts -= 1
+    if attempts == 0:
+        print('Вы проиграли. Загаданное слово: ' + secret_word)
+        break
+    if is_win == True:
+        print('Вы победили')
+        break
+

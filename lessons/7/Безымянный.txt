@@ -1,0 +1,27 @@
+a = [1, 2, 3, 'a', True]
+for i in a:
+    print(i)
+
+
+a = [1, 2, 3, 'a', True]
+for i in range(len(a)):
+    print(a[i])
+
+
+a = [1, 2, 3, 'a', True]
+print(*a)  # распаковка списка(выводит без квадратных скобок)
+
+
+
+set1 = {1, 3, 4, 4, 3, 2, 1, 55}
+for i in range(20):
+    print(set1)
+set1.add(21)
+for i in range(20):
+    print(set1)
+set1.add(2)
+set1.remove(2)
+set1.discard(22)
+a = set1.pop()
+print(a)
+print(set1)
