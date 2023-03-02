@@ -1,0 +1,23 @@
+{
+  "update_id": 549804763,
+  "message": {
+    "message_id": 109,
+    "from": {
+      "id": 5014092219,
+      "is_bot": false,
+      "first_name": "J",
+      "last_name": "J",
+      "username": "abrareq",
+      "language_code": "ru"
+    },
+    "chat": {
+      "id": 5014092219,
+      "first_name": "J",
+      "last_name": "J",
+      "username": "abrareq",
+      "type": "private"
+    },
+    "date": 1677770760,
+    "text": "fsad"
+  }
+}
