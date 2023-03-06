@@ -4,6 +4,7 @@
 
 # https://api.telegram.org/bot123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11/getMe
 #
+import time
 from pprint import pprint
 
 import requests
@@ -12,42 +13,30 @@ BASE_URL = 'https://api.telegram.org/bot'
 token = '6140305778:AAH7b3GscfEle_aHkJRJoSPHZTW1WE_Z034'
 admin_id = [5014092219]
 
+
 # response = requests.get(f'{BASE_URL}{token}/sendMessage?chat_id={admin_id}&text=hi')
 # print(response.json())
 
 # response = requests.get(f'{BASE_URL}{token}/getUpdates')
 # print(response.json())
 
+# рабочий код
+# проверяем id последнего обновления, если оно новое, то обрабатываем
+def pulling():
+    update_id = 0
+    while True:
+        time.sleep(0.5)
+        r = requests.get(f'{BASE_URL}{token}/getUpdates').json()
+        update_id_new = r['result'][-1]['update_id']
+        if update_id != update_id_new:
+            last_message_data = r['result'][-1]
+            user_id = last_message_data['message']['from']['id']
+            user_name = last_message_data['message']['from']['first_name']
+            requests.get(f'{BASE_URL}{token}/sendMessage?chat_id={user_id}&text=hello, {user_name}')
+            update_id = update_id_new
 
-# def polling():
-#     len_count = 0
-#     while True:
-#         res = requests.get(f'{BASE_URL}{token}/getUpdates').json()
-#         print(res)
-#         if len_count != len(res['result']):
-#             print(len_count)
-#             len_count = len(res['result'])
-#
-#             message = res['result'][-1]['message']
-#             from_id = message['from']['id']
-#             if from_id in admin_id:
-#                 requests.get(f'{BASE_URL}{token}/sendMessage?chat_id={from_id}&text=Привет')
-#
-#
-# polling()
-# def pulling():
-#     count_message = 0
-#     while True:
-#         response = requests.get(f'{BASE_URL}{token}/getUpdates').json()
-#         print(response)
-#         print(response['result'])
-#         if count_message != len(response['result']):
-#             count_message = len(response['result'])
-#             message = response['result'][-1]
-#             print(count_message)
-#
-#
-# pulling()
+
+pulling()
 
 # sendPhoto
 # response = requests.get(f'{BASE_URL}{token}/getUpdates')
@@ -90,4 +79,3 @@ admin_id = [5014092219]
 # sendChatAction
 # res = requests.get(f'{BASE_URL}{token}/sendChatAction?chat_id={admin_id[-1]}&action=upload_voice')
 # print(res.json())
-
