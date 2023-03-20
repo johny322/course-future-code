@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS project(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+name TEXT,
+description TEXT,
+deadline DATE
+)
